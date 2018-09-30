@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import { runInThisContext } from 'vm';
 
 let regEx = /(?<=g'>)(.*?)(?=<)/gmi
+let ul = document.querySelector('ul')
 
 class SetGetter extends Component {
 
@@ -20,16 +22,21 @@ class SetGetter extends Component {
       let setlist = randomShow.response.data[0].setlistdata.toString()
       let sortedList = setlist.match(regEx)
       this.setState({sortedList: sortedList})
-      }
-    )
+      this.state.sortedList.map(song => {
+        console.log(song)
+      })
+    })
   }
+
 
   render() {
     return (
       <div>
         <h3>come get ya sets</h3>
         <button onClick={this.setFetch}>Sets Here!</button>
-        <div>{this.state.sortedList}</div>
+        <ul>
+          {this.state.sortedList}
+        </ul>
       </div>
 
     );

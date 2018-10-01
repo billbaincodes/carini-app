@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SetGetter from './SetGetter';
+import RandomSetGetter from './RandomSetGetter';
+// import sampleSet from './sampleSet'
+import GetSetByDate from './GetSetByDate';
 
 
 class App extends Component {
   render() {
     return (
-
-
-
-      <div>
+      <div className="container">
         <h3>Carini had a lumpy head</h3>
-        <SetGetter />
+        <h3>come get ya sets</h3>
+        <RandomSetGetter /> 
+        <GetSetByDate />
       </div>
-
     );
   }
 }

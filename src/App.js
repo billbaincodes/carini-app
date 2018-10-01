@@ -9,10 +9,12 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h3>Carini had a lumpy head</h3>
+        <h2>Makisupa Set Tool</h2>
         <h3>come get ya sets</h3>
-        <RandomSetGetter /> 
-        <GetSetByDate />
+        <div className="buttonContainer">
+          <RandomSetGetter /> 
+          <GetSetByDate />
+        </div>
       </div>
     );
   }

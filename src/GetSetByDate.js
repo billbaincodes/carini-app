@@ -15,6 +15,18 @@ class GetSetByDate extends Component {
     this.dateUpdater = this.dateUpdater.bind(this)
   }
 
+  // setByDateFormat = (randomShow) => {
+  //   let setlist = randomShow.response.data[0].setlistdata.toString()
+  //   let sortedList = setlist.match(randomShowExpression)
+  //   this.setState({sortedList: sortedList})
+  // }
+
+
+  setByDateFetch = () => {
+    fetch('https://api.phish.net/v3/setlist/random?apikey=5B8686EDCD6647974F51')
+    .then(response => response.json())
+    .then(randomShow => this.setByDateFormat(randomShow))
+  }
 
   dateValidator = () => {
     if (dateExpression.test(this.state.showDate)) {

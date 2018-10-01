@@ -12,24 +12,24 @@ class RandomSetGetter extends Component {
     }
   }
 
-  setFormat = (randomShow) => {
+  randomShowFormat = (randomShow) => {
     let setlist = randomShow.response.data[0].setlistdata.toString()
     let sortedList = setlist.match(randomShowExpression)
     this.setState({sortedList: sortedList})
   }
 
 
-  setFetch = () => {
+  randomSetFetch = () => {
     fetch('https://api.phish.net/v3/setlist/random?apikey=5B8686EDCD6647974F51')
     .then(response => response.json())
-    .then(randomShow => this.setFormat(randomShow))
+    .then(randomShow => this.randomShowFormat(randomShow))
   }
 
 
   render() {
     return (
       <div>
-        <button onClick={this.setFetch}>Random Set</button>
+        <button onClick={this.randomSetFetch}>Random Set</button>
         {this.state.sortedList.map(song => <p>{song}</p>)}
       </div>
 

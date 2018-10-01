@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import RandomSetGetter from './RandomSetGetter';
-// import sampleSet from './sampleSet'
 import GetSetByDate from './GetSetByDate';
 
 

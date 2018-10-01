@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
-let dateExpression = /\d{2}[/|-]\d{2}[/|-]\d{4}/
+import regExs from "./RegularExpressions.js"
 
 
 class GetSetByDate extends Component {
@@ -10,26 +9,28 @@ class GetSetByDate extends Component {
     super()
     this.state = {
       showDate: undefined,
-      validDate: 'Invalid Date'
+      validDate: 'Invalid Date',
+      setOnDate: [],
     }
     this.dateUpdater = this.dateUpdater.bind(this)
   }
 
-  // setByDateFormat = (randomShow) => {
-  //   let setlist = randomShow.response.data[0].setlistdata.toString()
-  //   let sortedList = setlist.match(randomShowExpression)
-  //   this.setState({sortedList: sortedList})
-  // }
+  setByDateFormat = (setOnDate) => {
+    let setlist = setOnDate.response.data[0].setlistdata.toString()
+    let sortedList = setlist.match(regExs.setlistExpression)
+    this.setState({setOnDate: sortedList})
+    console.log(this.state.setOnDate)
+  }
 
 
   setByDateFetch = () => {
-    fetch('https://api.phish.net/v3/setlist/random?apikey=5B8686EDCD6647974F51')
+    fetch("https://api.phish.net/v3/setlists/get?apikey=5B8686EDCD6647974F51&showdate=2018-08-31")
     .then(response => response.json())
-    .then(randomShow => this.setByDateFormat(randomShow))
+    .then(setOnDate => this.setByDateFormat(setOnDate))
   }
 
   dateValidator = () => {
-    if (dateExpression.test(this.state.showDate)) {
+    if (regExs.dateExpression.test(this.state.showDate)) {
       this.setState({validDate: 'Valid Date!'})
     }
     else {
@@ -47,8 +48,8 @@ class GetSetByDate extends Component {
   render() {
     return(
       <div>
-        <button>Get Set by Date</button> 
-        <input onChange={this.dateUpdater} type="text" name="date" placeholder="mm-dd-yyyy"/>
+        <button onClick={this.setByDateFetch}>Get Set by Date</button> 
+        <input onChange={this.dateUpdater} type="text" name="date" placeholder="yyyy-mm-dd"/>
         <p>{this.state.validDate}: {this.state.showDate}</p>
       </div>
     )

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import regExs from "./RegularExpressions.js"
 
-let randomShowExpression = /(?<=g'>)(.*?)(?=<)/gmi
+
 
 class RandomSetGetter extends Component {
 
@@ -14,7 +15,7 @@ class RandomSetGetter extends Component {
 
   randomShowFormat = (randomShow) => {
     let setlist = randomShow.response.data[0].setlistdata.toString()
-    let sortedList = setlist.match(randomShowExpression)
+    let sortedList = setlist.match(regExs.setlistExpression)
     this.setState({sortedList: sortedList})
   }
 

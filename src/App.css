@@ -29,6 +29,7 @@
 
 body {
   background-color: rgb(0, 0, 46);
+  padding: 2em;
 }
 
 .container {
@@ -43,6 +44,8 @@ body {
 .buttonContainer {
   background-color: rgb(42, 152, 185);
   color: white;
+  height: 100vh;
+  padding: 1em;
 }
 
 body {

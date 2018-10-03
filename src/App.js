@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="container">
         <h2>Makisupa Set Tool</h2>
-        <h3>come get ya sets</h3>
+        <h4>Setlist come to your house</h4>
         <div className="buttonContainer">
           <RandomSetGetter /> 
           <GetSetByDate />

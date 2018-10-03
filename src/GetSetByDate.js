@@ -47,18 +47,13 @@ class GetSetByDate extends Component {
     
   }
 
-  stateChecker = () => {
-    console.log(baseURL + this.state.showDate)
-  }
-
   render() {
     return(
       <div>
-              <button onClick={this.stateChecker}>state showdate checker</button> 
-
         <button onClick={this.setByDateFetch}>Get Set by Date</button> 
         <input onChange={this.dateUpdater} type="text" name="date" placeholder="yyyy-mm-dd"/>
         <p>{this.state.validDate}: {this.state.showDate}</p>
+        {this.state.setOnDate.map(song => <p>{song}</p>)}
       </div>
     )
   }

@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import regExs from "./RegularExpressions.js"
 
+let baseURL = "https://api.phish.net/v3/setlists/get?apikey=5B8686EDCD6647974F51&showdate="
+
 
 class GetSetByDate extends Component {
 
   constructor(){
     super()
     this.state = {
-      showDate: undefined,
+      showDate: [],
       validDate: 'Invalid Date',
       setOnDate: [],
     }
@@ -24,7 +26,7 @@ class GetSetByDate extends Component {
 
 
   setByDateFetch = () => {
-    fetch("https://api.phish.net/v3/setlists/get?apikey=5B8686EDCD6647974F51&showdate=2018-08-31")
+    fetch(baseURL + this.state.showDate)
     .then(response => response.json())
     .then(setOnDate => this.setByDateFormat(setOnDate))
   }
@@ -45,9 +47,15 @@ class GetSetByDate extends Component {
     
   }
 
+  stateChecker = () => {
+    console.log(baseURL + this.state.showDate)
+  }
+
   render() {
     return(
       <div>
+              <button onClick={this.stateChecker}>state showdate checker</button> 
+
         <button onClick={this.setByDateFetch}>Get Set by Date</button> 
         <input onChange={this.dateUpdater} type="text" name="date" placeholder="yyyy-mm-dd"/>
         <p>{this.state.validDate}: {this.state.showDate}</p>

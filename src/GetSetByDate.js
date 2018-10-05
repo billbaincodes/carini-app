@@ -29,6 +29,10 @@ class GetSetByDate extends Component {
     fetch(baseURL + this.state.showDate)
     .then(response => response.json())
     .then(setOnDate => this.setByDateFormat(setOnDate))
+    .catch((error) => {
+      alert('bad date')
+    console.log(error)
+    })
   }
 
   dateValidator = () => {

@@ -26,6 +26,7 @@ class RandomSetGetter extends Component {
     .then(randomShow => this.randomShowFormat(randomShow))
     .catch((error) => {
       alert('there was an error', error)
+    })
   }
 
 

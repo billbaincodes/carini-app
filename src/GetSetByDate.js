@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import regExs from "./RegularExpressions.js"
 
-let baseURL = "https://api.phish.net/v3/setlists/get?apikey=5B8686EDCD6647974F51&showdate="
+let baseURL = "https://api.phish.net/v3/setlists/get?apikey=&showdate="
 
 
 class GetSetByDate extends Component {

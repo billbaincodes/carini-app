@@ -1,3 +1,6 @@
-let sampleSet = ['Free', 'Harry Hood', 'Cavern', 'Possum', 'Maze', 'Ghost', 'It\'s Ice']
+let sampleSets =  [
+                    ['Free', 'Harry Hood', 'Cavern', 'Possum', 'Maze', 'Ghost', 'It\'s Ice'],
+                    ['Fee', 'Fluffhead', 'Guyute', 'Harpua', 'Weekpaug Groove', 'Makisupa Policeman', 'Waste']
+                  ]
 
-export default sampleSet;
+export default sampleSets;

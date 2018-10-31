@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h2>Makisupa SetTool</h2>
+        <h2>Makisupa SetTool 🎸</h2>
         <h4>Setlists come to your house, use the buttons to obtain a random or dated set list</h4>
         <div className="buttonContainer">
           <RandomSetGetter /> 

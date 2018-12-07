@@ -33,7 +33,7 @@ class RandomSetGetter extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.randomSetFetch}>Random Set</button>
+        <button onClick={this.randomSetFetch}>This set courtesy of RNG</button>
         {this.state.sortedList.map(song => <p>{song}</p>)}
       </div>
 
